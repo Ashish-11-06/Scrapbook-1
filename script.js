@@ -69,8 +69,8 @@ function Homepage({ onCreateBook, onOpenBook, books, onDeleteBook }) {
     { className: "homepage" },
     React.createElement(FloatingDecorations),
 
-    React.createElement("h1", { className: "homepage-title" }, "📚 My Scrapbook 📚"),
-    React.createElement("p", { className: "homepage-subtitle" }, "Create magical memories with photos!"),
+    React.createElement("h1", { className: "homepage-title" }, "📚 THE MEMORY CHAPTER 📚"),
+    React.createElement("p", { className: "homepage-subtitle" }, "Create  memories with photos!"),
 
     React.createElement(
       "form",
@@ -81,7 +81,7 @@ function Homepage({ onCreateBook, onOpenBook, books, onDeleteBook }) {
         React.createElement(
           "label",
           { className: "form-label", htmlFor: "bookName" },
-          "✨ What should we call your scrapbook? ✨",
+          "✨ Give your memory a special name ? ✨",
         ),
         React.createElement("input", {
           id: "bookName",
@@ -89,7 +89,7 @@ function Homepage({ onCreateBook, onOpenBook, books, onDeleteBook }) {
           className: "form-input",
           value: bookName,
           onChange: (e) => setBookName(e.target.value),
-          placeholder: "My Amazing Adventures...",
+          placeholder: "A Journey to remember...",
           maxLength: 50,
           required: true,
         }),
@@ -103,18 +103,18 @@ function Homepage({ onCreateBook, onOpenBook, books, onDeleteBook }) {
         },
         isCreating
           ? React.createElement("span", null, React.createElement("span", { className: "loading" }), " Creating...")
-          : "🎨 Create My Scrapbook! 🎨",
+          : "🎨 Create a new Chapter 🎨",
       ),
     ),
 
     showSuccess &&
-      React.createElement("div", { className: "success-message" }, "🎉 Scrapbook created successfully! 🎉"),
+      React.createElement("div", { className: "success-message" }, "🎉 Memory created successfully! 🎉"),
 
     books.length > 0 &&
       React.createElement(
         "div",
         { className: "books-list" },
-        React.createElement("h2", { className: "books-title" }, "📖 My Scrapbooks 📖"),
+        React.createElement("h2", { className: "books-title" }, "📖 My Memories 📖"),
         books.map((book) =>
           React.createElement(
             "div",
