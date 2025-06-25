@@ -78,8 +78,8 @@ function Homepage({ onCreateBook, onOpenBook, books, onDeleteBook }) {
     { className: "homepage" },
     React.createElement(FloatingDecorations),
 
-    React.createElement("h1", { className: "homepage-title" }, "📚 THE MEMORY CHAPTER 📚"),
-    React.createElement("p", { className: "homepage-subtitle" }, "Create  memories with photos!"),
+    React.createElement("h1", { className: "homepage-title" }, "📚 My Scrapbook 📚"),
+    React.createElement("p", { className: "homepage-subtitle" }, "Create magical memories with photos!"),
 
     React.createElement(
       "form",
@@ -90,7 +90,7 @@ function Homepage({ onCreateBook, onOpenBook, books, onDeleteBook }) {
         React.createElement(
           "label",
           { className: "form-label", htmlFor: "bookName" },
-          "✨ Give your scrapbook a special name ✨",
+          "✨ What should we call your scrapbook? ✨",
         ),
         React.createElement("input", {
           id: "bookName",
@@ -98,7 +98,7 @@ function Homepage({ onCreateBook, onOpenBook, books, onDeleteBook }) {
           className: "form-input",
           value: bookName,
           onChange: (e) => setBookName(e.target.value),
-          placeholder: "A Journey to remember...",
+          placeholder: "My Amazing Adventures...",
           maxLength: 50,
           required: true,
         }),
@@ -112,7 +112,7 @@ function Homepage({ onCreateBook, onOpenBook, books, onDeleteBook }) {
         },
         isCreating
           ? React.createElement("span", null, React.createElement("span", { className: "loading" }), " Creating...")
-          : "🎨 Create a new Chapter 🎨",
+          : "🎨 Create My Scrapbook! 🎨",
       ),
     ),
 
@@ -438,9 +438,7 @@ function ScrapbookViewer({ book, onBack, onUpdateBook }) {
         goToPage(currentPageIndex - 1)
       }
     } else {
-      if (currentPageIndex < book.pages.length - 1) {
-        goToPage(currentPageIndex + 1)
-      }
+      addNewPage()
     }
   }
 
@@ -520,8 +518,7 @@ function ScrapbookViewer({ book, onBack, onUpdateBook }) {
 
         currentPageIndex > 0 && React.createElement("div", { className: "page-nav-hint left" }, "←"),
 
-        currentPageIndex < book.pages.length - 1 &&
-          React.createElement("div", { className: "page-nav-hint right" }, "→"),
+        React.createElement("div", { className: "page-nav-hint right" }, "+"),
 
         React.createElement("div", { className: "page-number" }, `Page ${currentPageIndex + 1}`),
 
@@ -676,7 +673,7 @@ function App() {
     currentBook
       ? React.createElement(ScrapbookViewer, {
           book: currentBook,
-          onBack: closeBook,
+          onBack: closeBook, 
           onUpdateBook: updateBook,
         })
       : React.createElement(Homepage, {
