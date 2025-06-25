@@ -3,15 +3,6 @@
 const React = window.React
 const ReactDOM = window.ReactDOM
 
-function playPageSound() {
-  try {
-    const audio = new Audio()
-    audio.src =
-      "data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT"
-    audio.play().catch(() => {})
-  } catch (e) {}
-}
-
 function useLocalStorage(key, initialValue) {
   const [storedValue, setStoredValue] = React.useState(() => {
     try {
