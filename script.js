@@ -81,7 +81,7 @@ function Homepage({ onCreateBook, onOpenBook, books, onDeleteBook }) {
         React.createElement(
           "label",
           { className: "form-label", htmlFor: "bookName" },
-          "✨ Give your memory a special name ? ✨",
+          "✨ Give your scrapbook a special name ✨",
         ),
         React.createElement("input", {
           id: "bookName",
@@ -108,13 +108,13 @@ function Homepage({ onCreateBook, onOpenBook, books, onDeleteBook }) {
     ),
 
     showSuccess &&
-      React.createElement("div", { className: "success-message" }, "🎉 Memory created successfully! 🎉"),
+      React.createElement("div", { className: "success-message" }, "🎉 Meomry created successfully! 🎉"),
 
     books.length > 0 &&
       React.createElement(
         "div",
         { className: "books-list" },
-        React.createElement("h2", { className: "books-title" }, "📖 My Memories 📖"),
+        React.createElement("h2", { className: "books-title" }, "📖 My Memory 📖"),
         books.map((book) =>
           React.createElement(
             "div",
@@ -429,7 +429,11 @@ function ScrapbookViewer({ book, onBack, onUpdateBook }) {
         goToPage(currentPageIndex - 1)
       }
     } else {
-      addNewPage()
+      if (currentPageIndex < book.pages.length - 1) {
+        goToPage(currentPageIndex + 1)
+      } else {
+        addNewPage()
+      }
     }
   }
 
@@ -509,7 +513,13 @@ function ScrapbookViewer({ book, onBack, onUpdateBook }) {
 
         currentPageIndex > 0 && React.createElement("div", { className: "page-nav-hint left" }, "←"),
 
-        React.createElement("div", { className: "page-nav-hint right" }, "+"),
+        React.createElement(
+          "div",
+          {
+            className: "page-nav-hint right",
+          },
+          currentPageIndex < book.pages.length - 1 ? "→" : "+",
+        ),
 
         React.createElement("div", { className: "page-number" }, `Page ${currentPageIndex + 1}`),
 
@@ -664,7 +674,7 @@ function App() {
     currentBook
       ? React.createElement(ScrapbookViewer, {
           book: currentBook,
-          onBack: closeBook, 
+          onBack: closeBook,
           onUpdateBook: updateBook,
         })
       : React.createElement(Homepage, {
