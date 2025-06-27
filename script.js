@@ -258,7 +258,7 @@ function StickerPalette({ onAddSticker }) {
     "🎉 Party": ["🎉", "🎈", "🎁", "🎊", "🎀", "🎵", "🎶"],
   }
 
-  const [activeCategory, setActiveCategory] = React.useState("💖 Hearts")
+  const [activeCategory, setActiveCategory] = React.useState("🐾 Animals")
 
   return React.createElement(
     "div",
