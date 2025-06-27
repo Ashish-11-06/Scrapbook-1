@@ -2,6 +2,10 @@
 
 This is a **digital scrapbook web application** built using **HTML, CSS, and React.js**, where users can create and view personalized memory books with one image per page. It provides a creative way to capture and relive memories.
 
+🙏 Special Thanks
+
+This project was completed under the guidance of **Kushal Sir**, who assigned me this task and supported me throughout. I’m grateful for the opportunity to learn and grow under his mentorship.
+
 ## 🌐 Live Project
 🔗 [View Project on Netlify](https://memorychapter.netlify.app/)
 
